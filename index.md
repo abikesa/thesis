@@ -20,7 +20,7 @@
 - **Agency**: Private cloud compute, server-based models, for elevated and secure experience beyond your device 
 
 ### Apollo
-- **Realtime**: Across [xOS](os.md), data never stored, encrypted when leveraging SBMs in cloud
+- **Realtime**: Across [xOS](https://abikesa.github.io/apple/os.html), data never stored, encrypted when leveraging SBMs in cloud
 - **GPT**: Surface info from neuralnetwork shared for world knowledlge relevant to personal context
 
 
