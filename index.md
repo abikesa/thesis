@@ -15,7 +15,7 @@
 - **Challenges**: Siri has semantic index across apps, devices, and OS without compromising [privacy](https://en.wikipedia.org/wiki/Apple_Inc.#Privacy)
 - **Skills**: Inputs languages, images, and actions from personal context into neural & diffusion networks 
 
-### Sing O Muse [4](./gpt-4o.md)
+### Sing O Muse [4](https://github.com/abikesa/thesis/blob/main/thesis/gpt-4o.md)
 - **Tools**: In-house `A17` silicon, local, private, secture, no data storage, real-time usage
 - **Agency**: Private cloud compute, server-based models, for elevated and secure experience beyond your device 
 
