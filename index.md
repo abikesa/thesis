@@ -17,7 +17,7 @@
 
 ### Sing O Muse [4](https://github.com/abikesa/thesis/blob/main/gpt4-o.md)
 - **Tools**: In-house `A17` silicon, local, private, secture, no data storage, real-time usage
-- **Agency**: Private cloud compute, server-based models, for elevated and secure experience beyond your device 
+- **[Agency](https://www.economist.com/by-invitation/2024/06/17/ray-kurzweil-on-how-ai-will-transform-the-physical-world#)**: Private cloud compute, server-based models, for elevated and secure experience beyond your device 
 
 ### Apollo 5
 - **Realtime**: Across [xOS](https://abikesa.github.io/apple/os.html), data never stored, encrypted when leveraging SBMs in cloud
