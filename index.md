@@ -1,6 +1,6 @@
-> Study design & inclusion criteria is tantamount to blinders
-> Dynamic, iterative, webApps that personalize estimates have more integrity
-> They [embrace](https://abikesa.github.io/bach/) more remote overtones of the harmonic series
+> Study design & inclusion criteria is tantamount to blinders      
+> Dynamic, iterative, webApps that personalize estimates have more integrity      
+> They [embrace](https://abikesa.github.io/bach/) more remote overtones of the harmonic series      
 
 - [aim 1](https://abikesa.github.io/aim1/)
 - [aim](https://abikesa.github.io/aim2/) [2](https://abikesa.github.io/magicbullet/)
