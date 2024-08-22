@@ -519,7 +519,7 @@ document.write(`
 
 <span class="k">def</span> <span class="nf">add_fern_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">depth</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">return</span>
+        <span class="k">return</span> <span class="n">start</span>
     
     <span class="n">end</span> <span class="o">=</span> <span class="p">(</span><span class="n">start</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">angle</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">start</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">scale</span> <span class="o">*</span> <span class="n">angle</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
     
@@ -528,21 +528,36 @@ document.write(`
     <span class="n">new_angle1</span> <span class="o">=</span> <span class="p">(</span><span class="n">angle</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.6</span> <span class="o">-</span> <span class="n">angle</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">,</span> <span class="n">angle</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.4</span> <span class="o">+</span> <span class="n">angle</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.6</span><span class="p">)</span>
     <span class="n">new_angle2</span> <span class="o">=</span> <span class="p">(</span><span class="n">angle</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.6</span> <span class="o">+</span> <span class="n">angle</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.4</span><span class="p">,</span> <span class="o">-</span><span class="n">angle</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.4</span> <span class="o">+</span> <span class="n">angle</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">0.6</span><span class="p">)</span>
     
-    <span class="n">add_fern_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">new_angle1</span><span class="p">,</span> <span class="n">scale</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
-    <span class="n">add_fern_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">new_angle2</span><span class="p">,</span> <span class="n">scale</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
+    <span class="n">child1</span> <span class="o">=</span> <span class="n">add_fern_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">new_angle1</span><span class="p">,</span> <span class="n">scale</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
+    <span class="n">child2</span> <span class="o">=</span> <span class="n">add_fern_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">depth</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">new_angle2</span><span class="p">,</span> <span class="n">scale</span> <span class="o">*</span> <span class="mf">0.7</span><span class="p">)</span>
     
+    <span class="k">return</span> <span class="n">end</span>
+
 <span class="k">def</span> <span class="nf">create_fern_graph</span><span class="p">(</span><span class="n">depth</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">()</span>
     <span class="n">start</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
     <span class="n">angle</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
     
-    <span class="n">add_fern_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+    <span class="n">child1</span> <span class="o">=</span> <span class="n">add_fern_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">depth</span><span class="p">,</span> <span class="n">angle</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
     
-    <span class="k">return</span> <span class="n">G</span>
+    <span class="k">return</span> <span class="n">G</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">child1</span>
 
 <span class="c1"># Generate the fern graph</span>
 <span class="n">fern_depth</span> <span class="o">=</span> <span class="mi">7</span>  <span class="c1"># Adjust depth for more or fewer branches</span>
-<span class="n">fern_graph</span> <span class="o">=</span> <span class="n">create_fern_graph</span><span class="p">(</span><span class="n">fern_depth</span><span class="p">)</span>
+<span class="n">fern_graph</span><span class="p">,</span> <span class="n">father</span><span class="p">,</span> <span class="n">son</span> <span class="o">=</span> <span class="n">create_fern_graph</span><span class="p">(</span><span class="n">fern_depth</span><span class="p">)</span>
+
+<span class="c1"># Find the children of &quot;Father&quot;</span>
+<span class="n">children</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fern_graph</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">father</span><span class="p">))</span>
+
+<span class="c1"># Ensure there are at least two children</span>
+<span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">children</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">2</span><span class="p">:</span>
+    <span class="c1"># Label the edges as &quot;Son&quot; and &quot;HolySpirit&quot;</span>
+    <span class="n">edge_labels</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">(</span><span class="n">father</span><span class="p">,</span> <span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span> <span class="s2">&quot;Son&quot;</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">father</span><span class="p">,</span> <span class="n">children</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span> <span class="s2">&quot;HolySpirit&quot;</span>
+    <span class="p">}</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">edge_labels</span> <span class="o">=</span> <span class="p">{}</span>
 
 <span class="c1"># Define colors</span>
 <span class="n">leaf_color</span> <span class="o">=</span> <span class="s1">&#39;#5F9E54&#39;</span>  <span class="c1"># A green between lime and cabbage</span>
@@ -558,6 +573,10 @@ document.write(`
 <span class="n">pos</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="n">node</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">fern_graph</span><span class="o">.</span><span class="n">nodes</span><span class="p">()}</span>
 <span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">fern_graph</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">node_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">edge_color</span><span class="o">=</span><span class="n">colors</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
+<span class="c1"># Draw edge labels if they exist</span>
+<span class="k">if</span> <span class="n">edge_labels</span><span class="p">:</span>
+    <span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edge_labels</span><span class="p">(</span><span class="n">fern_graph</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">edge_labels</span><span class="o">=</span><span class="n">edge_labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 
 <span class="c1"># Save the image</span>
@@ -571,6 +590,12 @@ document.write(`
 <img alt="../_images/6e3efdc487371d93e0c3060bb272eb87b38dbf6dc9b41975f1096a17b658416b.png" src="../_images/6e3efdc487371d93e0c3060bb272eb87b38dbf6dc9b41975f1096a17b658416b.png" />
 </div>
 </div>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/blanche.png"><img alt="../_images/blanche.png" src="../_images/blanche.png" style="width: 1px; height: 1px;" /></a>
+<figcaption>
+<p><span class="caption-text"><em>Extraordinary</em>. Parent is “Father” and children are “Son” and “Holy Spirit”. Everything else springs from these two children: the wave-particle duality of the entire cosmos!</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
 <Details>
